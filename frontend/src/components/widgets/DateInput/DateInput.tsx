@@ -21,6 +21,7 @@ import { Datepicker as UIDatePicker } from "baseui/datepicker"
 import { Map as ImmutableMap } from "immutable"
 import { WidgetStateManager, Source } from "lib/WidgetStateManager"
 import { datePickerOverrides } from "lib/widgetTheme"
+import pt from 'date-fns/locale/pt'
 
 export interface Props {
   disabled: boolean
@@ -64,7 +65,8 @@ class DateInput extends React.PureComponent<Props, State> {
       <div className="Widget stDateInput" style={style}>
         <label>{label}</label>
         <UIDatePicker
-          formatString="yyyy/MM/dd"
+          locale={pt}
+          formatString="dd/MM/yyyy"
           disabled={this.props.disabled}
           onChange={this.handleChange}
           overrides={datePickerOverrides}
